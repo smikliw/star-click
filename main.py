@@ -19,7 +19,7 @@ CORS(app)  # Разрешаем кросс-доменные запросы
 db = Database()
 
 # Токен вашего Telegram бота (теперь из переменной окружения)
-BOT_TOKEN = os.getenv('BOT_TOKEN', '')
+BOT_TOKEN = os.getenv('BOT_TOKEN', '8501275776:AAGr1b_4z6IikTZzU6KBSLipYKPHSnHAzzM')
 
 def verify_telegram_data(init_data):
     """Проверка подписи данных от Telegram"""
