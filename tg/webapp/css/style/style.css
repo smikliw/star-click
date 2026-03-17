@@ -1,0 +1,637 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1f3e, #0a0f2e);
+    color: white;
+    min-height: 100vh;
+}
+
+.app-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px 16px 80px;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Заголовок */
+.app-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.app-title {
+    font-size: 24px;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Контент */
+.content {
+    min-height: calc(100vh - 140px);
+}
+
+/* Нижняя навигация */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 15, 46, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #888;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 8px;
+    flex: 1;
+}
+
+.nav-btn.active {
+    color: #ffd700;
+}
+
+.nav-icon {
+    font-size: 20px;
+}
+
+.nav-text {
+    font-size: 12px;
+}
+
+/* Главная страница */
+.stars-container {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.stars-counter {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.bonus-timer {
+    text-align: center;
+    padding: 8px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 20px;
+    margin: 10px 0;
+    border: 1px solid #ffd700;
+    font-size: 14px;
+}
+
+.clicker-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.clicker-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.clicker-image {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.1s;
+    border-radius: 50%;
+    object-fit: cover;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.clicker-image:active {
+    transform: scale(0.95);
+}
+
+.clicker-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Энергия */
+.energy-section {
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+.energy-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.energy-bar-container {
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.energy-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff87, #60efff);
+    transition: width 0.3s;
+    border-radius: 10px;
+}
+
+/* Статистика на главной */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stat-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+/* Уведомление об энергии */
+.energy-warning {
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid #ff4444;
+    color: #ff4444;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Страница улучшений */
+.page-title {
+    text-align: center;
+    margin: 20px 0;
+    color: #ffd700;
+}
+
+.balance-card {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid #ffd700;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.balance-label {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.balance-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.upgrade-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.upgrade-item:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.upgrade-item.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.upgrade-info {
+    display: flex;
+    gap: 15px;
+}
+
+.upgrade-icon {
+    font-size: 32px;
+}
+
+.upgrade-details h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.upgrade-level {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 2px;
+}
+
+.upgrade-desc {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.upgrade-price {
+    font-size: 18px;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.price-info {
+    text-align: center;
+    color: #888;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+/* Рейтинг */
+.rating-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.rating-header {
+    display: grid;
+    grid-template-columns: 50px 1fr 80px;
+    padding: 15px;
+    background: rgba(255, 215, 0, 0.1);
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.rating-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.rating-item {
+    display: grid;
+    grid-template-columns: 50px 1fr 80px;
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rating-pos {
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.rating-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.rating-stars {
+    text-align: right;
+    color: #ffd700;
+}
+
+/* Бонусы */
+.bonus-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.bonus-section h3 {
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+.daily-rewards {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin: 15px 0;
+}
+
+.reward-day {
+    text-align: center;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.reward-day.completed {
+    background: rgba(76, 175, 80, 0.3);
+    border: 1px solid #4caf50;
+}
+
+.reward-day.available {
+    background: rgba(255, 215, 0, 0.3);
+    border: 1px solid #ffd700;
+    cursor: pointer;
+}
+
+.reward-day.locked {
+    opacity: 0.5;
+}
+
+.day-number {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.reward-amount {
+    color: #ffd700;
+    font-size: 11px;
+}
+
+.claim-button {
+    width: 100%;
+    padding: 15px;
+    background: #ffd700;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0a0f2e;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.claim-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.mission-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.mission-info {
+    margin-bottom: 8px;
+}
+
+.mission-name {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.mission-progress {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #ffd700;
+    transition: width 0.3s;
+}
+
+.mission-counter {
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+}
+
+.mission-reward {
+    color: #ffd700;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Профиль */
+.profile-header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffd700;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile-username {
+    color: #888;
+    font-size: 14px;
+}
+
+.section-title {
+    color: #ffd700;
+    margin: 20px 0 10px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.achievement-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.achievement-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+.achievement-card.unlocked .achievement-icon {
+    filter: none;
+    opacity: 1;
+}
+
+.achievement-name {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.achievement-desc {
+    font-size: 10px;
+    color: #888;
+}
+
+.stats-detail {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: #888;
+}
+
+.stat-value {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.history-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+.history-date {
+    color: #888;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+/* Анимации */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.clicker-image.clicked {
+    animation: spin 0.3s ease;
+}
+
+/* Загрузчик */
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 215, 0, 0.3);
+    border-top-color: #ffd700;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .app-title {
+        font-size: 20px;
+    }
+
+    .stars-counter {
+        font-size: 36px;
+    }
+
+    .clicker-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .daily-rewards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,54 @@
+<h2 class="page-title">🚀 Космические улучшения</h2>
+
+<!-- Баланс -->
+<div class="balance-card">
+    <div class="balance-label">Ваш баланс:</div>
+    <div class="balance-value" id="balanceValue">0 ⭐</div>
+</div>
+
+<!-- Улучшения -->
+<div class="upgrades-list">
+    <!-- Сила тапа -->
+    <div class="upgrade-item" data-type="tap" id="upgradeTap">
+        <div class="upgrade-info">
+            <div class="upgrade-icon">👆</div>
+            <div class="upgrade-details">
+                <h3>Сила тапа</h3>
+                <div class="upgrade-level">Уровень: <span id="tapLevel">1</span></div>
+                <div class="upgrade-desc">+1 звезда за клик</div>
+            </div>
+        </div>
+        <div class="upgrade-price" id="tapPrice">100 ⭐</div>
+    </div>
+
+    <!-- Энергия -->
+    <div class="upgrade-item" data-type="energy" id="upgradeEnergy">
+        <div class="upgrade-info">
+            <div class="upgrade-icon">🔋</div>
+            <div class="upgrade-details">
+                <h3>Энергия</h3>
+                <div class="upgrade-level">Уровень: <span id="energyLevel">1</span></div>
+                <div class="upgrade-desc">+10 к макс. энергии</div>
+            </div>
+        </div>
+        <div class="upgrade-price" id="energyPrice">200 ⭐</div>
+    </div>
+
+    <!-- Пассивный доход -->
+    <div class="upgrade-item" data-type="passive" id="upgradePassive">
+        <div class="upgrade-info">
+            <div class="upgrade-icon">💫</div>
+            <div class="upgrade-details">
+                <h3>Пассивный доход</h3>
+                <div class="upgrade-level">Уровень: <span id="passiveLevel">0</span></div>
+                <div class="upgrade-desc">+1 звезда в секунду</div>
+            </div>
+        </div>
+        <div class="upgrade-price" id="passivePrice">500 ⭐</div>
+    </div>
+</div>
+
+<!-- Информация о ценах -->
+<div class="price-info">
+    <small>Каждые 5 уровней цена увеличивается в 2 раза</small>
+</div>
